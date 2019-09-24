@@ -1,0 +1,64 @@
+<div class="login-page">
+    <div class="form">
+
+<form class="login-form">
+
+        <p  class="message3" *ngIf="uspesno"> Uspesno ste se registrovali ali morate sacekati
+            da administrator odobri vas zahtev
+        
+            </p>
+            <br>
+            <button  (click)="btnClick()"   *ngIf="uspesno">OK</button>
+
+    <div *ngIf ="uspesno == false">
+    <p class="message" *ngIf="porime">*Niste uneli ime</p>
+    <input [(ngModel)]="ime" name="ime" type="text" placeholder="ime"/>
+ 
+    <p class="message" *ngIf="porprezime">*Niste uneli prezime</p>
+    <input [(ngModel)]="prezime" name="prezime" type="text" placeholder="prezime"/>
+    
+    <p class="message" *ngIf="poremailprazno">*Niste uneli email</p>
+    <p class="message" *ngIf="poremail">*Neispravan email</p>
+    <input [(ngModel)]="mail" name="mail" type="text" placeholder="email"/>
+   
+    <p class="message" *ngIf="porzanimanje">*Niste uneli zanimanje</p>
+    <input [(ngModel)]="zanimanje" name="zanimanje" type="text" placeholder="zanimanje"/>
+   
+    <p class="message" *ngIf="porusernameprazno">*Niste uneli korisnicko ime</p>
+    <p class="message" *ngIf="porusername">*Korisnicko ime vec postoji</p>
+    <input [(ngModel)]="username" name="username" type="text" placeholder="korisnicko ime"/>
+   
+    <p class="message" *ngIf="porpasswordprazno">*Niste uneli lozinku</p>
+    <p class="message" *ngIf="porpassword">*Lozinka nije u odgovarajucem formatu</p>
+    <input [(ngModel)]="password" name="password" type="password" placeholder="lozinka"/>
+   
+    <p class="message" *ngIf="porpassword2prazno">*Niste uneli potvrdu lozinke</p>
+    <p class="message" *ngIf="porpassword2">*Lozinke se ne poklapaju</p>
+    <input [(ngModel)]="password2" name="password2" type="password" placeholder="potvrda lozinke"/>
+   
+    <p class="message" *ngIf="porpol">*Niste uneli pol</p>
+    <input [(ngModel)]="pol" name="pol" type="text" placeholder="pol"/>
+   
+    <p class="message" *ngIf="porjmbgprazno">*Niste uneli jmbg</p>
+    <p class="message" *ngIf="porjmbg">*Neispravan jmbg</p>
+    <input [(ngModel)]="jmbg" name="jmbg" type="text" placeholder="jmbg"/>
+    
+    <p class="message" *ngIf="porslikaprazno">*Nista izabrali sliku</p>
+    <p class="message" *ngIf="porslika">*Slika mora biti 300x300</p>
+    <input type="file" name="slika" (change)="onFileSelected($event)" placeholder="slika"/>
+    <img *ngIf="upload" [src]="slikaPrev" width="300px" height=300px/>
+
+
+    <p class="message" *ngIf="porpitanje">*Niste uneli pitanje</p>
+    <input [(ngModel)]="pitanje" name="pitanje" type="text" placeholder="tajanstveno pitanje"/>
+  
+    <p class="message" *ngIf="porodgovor">*Niste uneli odgovor</p>
+    <input [(ngModel)]="odgovor"name="odgovor" type="text" placeholder="odgovor"/>
+    
+    
+    <button (click)="moze()">Registruj se</button>
+    <p class="message2">Vec registrovan? <a routerLink="/login">Uloguj se</a></p>
+</div>
+</form>
+</div>
+</div>

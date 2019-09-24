@@ -1,0 +1,49 @@
+<div class="login-page">
+  <div class="form">
+<!--   <form class="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>-->
+    <h3>Podesavanje igre dana</h3>
+    <hr>
+    <form class="login-form">
+      <p class="message3" *ngIf="uspesno"> Uspesno!</p>
+      <br>
+      <button (click)="btnClick()" *ngIf="uspesno">OK</button>
+
+      <div  *ngIf="!uspesno">
+          <p class="poruka" *ngIf="zauzeto">*Vec je odredjena igra za izabrani datum</p>
+      Odaberite igru:
+      <select  [(ngModel)]="igra"name = "igra" (ngModelChange)="onItemSelected()" placeholder="Odaberi" >
+        <option value="1">Moj broj</option>
+        <option value="2">Zanimljive geografije</option>
+        <option value="3">Anagram</option>
+      </select>
+      <div *ngIf="anagram">
+          <p class="poruka" *ngIf="poruka">*anagram 1 i anagram 2 moraju biti razliciti</p>
+          <p class="porukaprazno" *ngIf="poruka2">*niste uneli sve podatke</p>
+        Odaberi prvi anagram:
+        <select  [(ngModel)]="izabraniA1" name = "izabraniA1">
+          <option *ngFor="let anag of anagrami" [value]="anag.resenje">
+              {{anag.resenje}}
+          </option>
+        </select>
+        Odaberi drugi anagram:
+        <select  [(ngModel)]="izabraniA2" name ="izabraniA2">
+            <option *ngFor="let anag of anagrami" [value]="anag.resenje" >
+                {{anag.resenje}}
+            </option>
+          </select>
+      </div>
+      Unesite datum igre:
+      <input  [(ngModel)]="datum" type="date" name="datum"  placeholder="resenje"/>
+      <button  (click)="unesi()">UNESI</button>
+     
+      <!--<button  (click)="anagramFile()">UNESI</button>-->
+      </div>
+     </form>
+  </div>
+</div>

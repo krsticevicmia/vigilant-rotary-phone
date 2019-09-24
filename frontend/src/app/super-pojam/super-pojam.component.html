@@ -1,0 +1,44 @@
+<div class="content_box">
+        <br>
+        <!--ovde stavimo neki div gde se prikaze sve detaljno o korisniku :D-->
+     
+          <div class="center_bar ">
+                  <div class="tab-content ">
+              <div class="tab-pane fade show active" id="lorem" role="tabpanel">
+                <div *ngIf ="prazno == true">
+                Trentno ne postoje pojmovi za odobravanje.
+                </div>
+     <div *ngFor="let pojam of pojmovi">      
+       <hr>
+         <h3>  &nbsp;&nbsp;&nbsp; slovo: {{pojam.slovo}}</h3><br>  
+         <h3>
+            &nbsp;&nbsp;&nbsp;  username: {{pojam.username}}   </h3>
+            <hr>
+      <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Kategorija</th>
+              <th>Pojam</th>
+              <th>Odobri</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let odg of pojam.odgovori; let i = index;">
+              <td>{{odg.kategorija}}</td>
+              <td>{{odg.termini[0].termin}}</td>
+              <td>  <button (click)="dodajPoene(odg, pojam, i)" class="btn btn-info">Odobri</button></td>
+           
+            </tr>
+            <tr><td colspan="2"></td>
+              <td ><button (click)="zavrsi(pojam)" class="btn btn-success">Rangiraj</button></td></tr>
+  
+         
+           
+          </tbody>
+          </table>
+        </div>
+                  </div>
+          </div>
+          </div>
+      </div>
+      

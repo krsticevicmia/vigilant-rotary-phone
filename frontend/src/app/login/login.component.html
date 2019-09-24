@@ -1,0 +1,36 @@
+<div class="login-page">
+  <div class="form">
+<!--   <form class="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>-->
+    <form class="login-form">
+      <p class="message" *ngIf="porusername">*Korisnik ne postoji</p>
+      <p *ngIf="promena !=true && poruserpass==true" class="message">*Korisnicko ime ili sifra su pogresni</p>
+
+      <input   [(ngModel)]="username" type="text" name="username" placeholder="username"/>
+      <input *ngIf="promena !=true" [(ngModel)]="password" type="password" name="password"  placeholder="password"/>
+     
+      <p class="message" *ngIf="poroldpass">*Netacna lozinka</p>
+      <input *ngIf="promena" [(ngModel)]="oldpass" type="password" name="oldpass"  placeholder="old password"/>
+     
+      <button *ngIf="promena !=true" (click)="login()">login</button>
+      <p *ngIf="promena !=true" class="message">Nisi registrovan? <a  routerLink="/register">Registracija</a></p>
+      <p *ngIf="promena !=true" class="message">Zelis da promenis lozinku? <a href="#" (click)="promenaTrue()">Promeni</a></p>
+      <p *ngIf="promena !=true" class="message">Samo posecujes? <a  routerLink="/igrac-rang" >Nastavi kao gost</a></p>
+
+      <p class="message" *ngIf="porpassword">*Lozinka nije u odgovarajucem formatu</p>
+      <input *ngIf="promena"  [(ngModel)]="newpass" type="password" name="newpass" placeholder="new password"/>
+      
+      <p class="message" *ngIf="porpoklapanje">*Unesite dva puta istu novu lozinku!</p>
+      <input *ngIf="promena"  [(ngModel)]="newpass2" type="password" name="newpass2"  placeholder="new password"/>
+      <button *ngIf="promena " (click)="promeni()">OK</button>
+      <br>
+      <br>
+      <button *ngIf="promena " (click)="clear()">NAZAD</button>
+    </form>
+  </div>
+</div>

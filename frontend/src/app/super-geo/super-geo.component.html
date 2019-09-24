@@ -1,0 +1,48 @@
+<div class="login-page">
+  <div class="form">
+<!--   <form class="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>-->
+    <h3>Zanimljiva geografija</h3>
+    <hr>
+    <form class="login-form">
+      <p class="message3" *ngIf="uspesno"> Uspesno!</p>
+      <br>
+      <button (click)="btnClick()" *ngIf="uspesno">OK</button>
+
+      <div  *ngIf="!uspesno">
+        <h3>{{slovo}}</h3>
+      Unesite slovo: 
+      <p class="message" *ngIf="jednoSlovo">*Uneti samo jedno slovo</p>
+      <p class="message" *ngIf="nemaSlova">*Niste uneli slovo</p>
+      <input   [(ngModel)]="slovo" type="text" name="slovo" />
+      Unesite drzavu:
+      <input  [(ngModel)]="drzava" type="text" name="drzava"  />
+      Unesite grad:
+      <input  [(ngModel)]="grad" type="text" name="grad"  />
+      Unesite jezero:
+      <input  [(ngModel)]="jezero" type="text" name="jezero"  />
+      Unesite planinu:
+      <input  [(ngModel)]="planina" type="text" name="planina"  />
+      Unesite reku:
+      <input  [(ngModel)]="reka" type="text" name="reka"  />
+      Unesite zivotinju:
+      <input  [(ngModel)]="zivotinja" type="text" name="zivotinja"  />
+      Unesite biljku:
+      <input  [(ngModel)]="biljka" type="text" name="biljka"  />
+      Unesite muziku:
+      <input  [(ngModel)]="muzika" type="text" name="muzika"  />
+
+      <button (click)='unesi()' >UNESI</button>
+      <hr>
+      Ucitati iz fajla:
+      <p class="message" *ngIf="porfajl">*Greska</p>
+      <input type="file" name="fileA" (change)="geoFile($event)" />
+      </div>
+     </form>
+  </div>
+</div>

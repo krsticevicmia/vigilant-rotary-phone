@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">ETF kviskoteka</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <!--Takmicar-->
+      <li class="nav-item active"  *ngIf="takmicar">
+        <a class="nav-link" routerLink = "/igrac">Igraj igru dana <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active" *ngIf="takmicar">
+          <a class="nav-link" routerLink = "/igrac-rang">Rang lista <span class="sr-only">(current)</span></a>
+        </li>
+      <!--Admin-->
+      <li class="nav-item" *ngIf="admin">
+        <a class="nav-link"  routerLink = "/admin">Zahtevi</a>
+      </li>
+      <li class="nav-item" *ngIf="admin">
+        <a class="nav-link"  routerLink = "/admin-igra">Odaberi igru dana</a>
+      </li>
+      <!--Supervizor-->
+      <li class="nav-item" *ngIf="supervizor">
+          <a class="nav-link" routerLink = "/supervizor">Anagram</a>
+        </li>
+        <li class="nav-item"  *ngIf="supervizor">
+            <a class="nav-link" routerLink = "/supergeo">Zanimljiva geografija</a>
+          </li>
+          <li class="nav-item"  *ngIf="supervizor">
+            <a class="nav-link" routerLink = "/superpojam">Odobri poene</a>
+          </li>
+
+          <li class="nav-item"  *ngIf="login">
+              <a class="nav-link" href="#" click="logout()">Odjavi se</a>
+            </li>
+            <li class="nav-item" >
+          <div class="d" *ngIf = "username !='' "> 
+              <a class="nav-link" >Dobro dosli {{username}}!</a>   </div>
+            </li>
+
+    </ul>
+  
+  </div>
+</nav>

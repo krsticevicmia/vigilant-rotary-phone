@@ -1,0 +1,114 @@
+<div class="login-page">
+  <hr>
+    <h2>Igra dana</h2>
+    <hr>
+    <div class="form">
+      <div *ngIf = "odigrano == true">
+        Vec ste igrali igru dana!
+        <div *ngIf="obracunato == false"> I morate sacekati da supervizor proveri odgovore!</div>
+      </div>
+      
+      <div *ngIf = "odigrano == false">
+
+      
+      <div *ngIf="igra == 0">
+          Nema igre za danasnji datum!
+      </div>
+      <div *ngIf="kraj == true">
+         Igra je zavrsena! <br>
+         Cestitamo! <br>
+          <div *ngIf="obracunato == true">Vasi poeni {{poeni}}</div>
+          <div *ngIf="obracunato == false">Morate sacekati da supervizor proveri odgovore</div>
+      </div>
+      <div *ngIf = "igra != 0 && zapocni != true">
+        <button  (click)='pocni()'>Zapocni</button>
+      </div>
+      <div *ngIf="igra == 3 && zapocni == true && kraj!=true ">
+      <h3>Anagram</h3>
+      <hr>
+       <div *ngIf="sekund==false">
+      Preostalo sekundi: {{brojac}}
+        </div>
+      <hr>
+      <form class="login-form">
+
+        Zagonetka 1:
+        <br>
+        <h3>{{zagonetka1}}  </h3>
+        <input   [(ngModel)]="resenje1" type="text" name="resenje1" placeholder="odgovor"/>
+    Zagonetka 2:
+        <br>
+        <h3>   {{zagonetka2}}</h3>
+        <input  [(ngModel)]="resenje2" type="text" name="resenje2"  placeholder="odgovor"/>
+        <button  (click)="unesiGeos()">UNESI</button>
+        </form>
+      </div>
+  <div *ngIf="igra==2 && zapocni == true && kraj !=true ">
+          <h3>Zanimljiva geografija</h3>
+          <div *ngIf="sekund==false">
+              Preostalo sekundi: {{brojac}}
+                </div>
+    <form class="login-form">
+      Zadato slovo
+      <hr>
+        <h3>{{slovo}}</h3>
+      <hr>
+      Unesite drzavu:
+      <input  [(ngModel)]="drzava" type="text" name="drzava"  />
+      Unesite grad:
+      <input  [(ngModel)]="grad" type="text" name="grad"  />
+      Unesite jezero:
+      <input  [(ngModel)]="jezero" type="text" name="jezero"  />
+      Unesite planinu:
+      <input  [(ngModel)]="planina" type="text" name="planina"  />
+      Unesite reku:
+      <input  [(ngModel)]="reka" type="text" name="reka"  />
+      Unesite zivotinju:
+      <input  [(ngModel)]="zivotinja" type="text" name="zivotinja"/>
+      Unesite biljku:
+      <input  [(ngModel)]="biljka" type="text" name="biljka"  />
+      Unesite muziku:
+      <input  [(ngModel)]="muzika" type="text" name="muzika"  />
+
+      <button (click)='unesiGeos()' >UNESI</button>
+      <hr>
+   
+     </form>
+
+    </div>
+    <div *ngIf="igra == 1 && zapocni == true && kraj!=true ">
+        <h3>Moj broj</h3>
+        <hr>
+         <div *ngIf="sekund==false">
+        Preostalo sekundi: {{brojac}}
+          </div>
+        <hr>
+        <form class="login-form">
+          Ponudjeni brojevi: 
+          <br>
+          <label> {{br1}}</label>
+          &nbsp;
+          <label> {{br2}}</label>
+          &nbsp;
+          <label> {{br3}}</label>
+          &nbsp;
+          <label> {{br4}}</label>
+          <br>
+          <label>{{dr1}}</label>
+          &nbsp;
+          <label>{{dr2}}</label>
+          <br>
+       
+          Trazi se broj :<br>
+          <label>{{tr}}</label>
+          <br>
+          <hr>
+          Vase resenje:
+          <input  [(ngModel)]="brojOdg" type="text" name="brojOdg" />
+          <div  *ngIf = "dugme == false"><button  (click)="stop()">STOP</button></div>
+          <div  *ngIf = "dugme == true"><button  (click)="predajOdg()">Predaj odgovore</button></div>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>

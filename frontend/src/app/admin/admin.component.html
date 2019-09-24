@@ -1,0 +1,101 @@
+<div class="content_box">
+  <br>
+  <!--ovde stavimo neki div gde se prikaze sve detaljno o korisniku :D-->
+  <div *ngIf="prikazi==true && curr!=null" class="tab-content ">
+      <table class="table">
+          
+            <tr>
+                <td>Ime: </td> <td>{{curr.ime}}</td>
+              </tr><tr>
+                <td>Prezime: </td> <td>{{curr.prezime}}</td></tr>
+                <tr>
+                <td>E-mail: </td> <td>{{curr.mail}}</td></tr>
+                <tr>
+                <td>Korisnicko ime: </td><td>{{curr.username}}</td></tr>
+                <tr>
+                <td>Zanimanje: </td><td>{{curr.zanimanje}}</td></tr>
+                <tr>
+                <td>Pol: </td><td>{{curr.pol}}</td></tr>
+                <tr>
+                <td>JMBG: </td><td>{{curr.jmbg}}</td></tr>
+               <tr> <td>Slika: </td><td>
+                  <img [src]="curr.slika" width="100px" height=100px/>
+                </td></tr>
+                
+           <tr><td colspan="2"><button (click)="zatvori()" class="btn btn-info"> Zatvori</button></td></tr>
+      </table>
+  </div>
+  <br>
+    <div class="center_bar ">
+        	<div class="tab-content ">
+		<div class="tab-pane fade show active" id="lorem" role="tabpanel">
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Email</th>
+        <th>Korisnicko ime</th>
+        <th>Akcija</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let req of requests">
+        <td>{{req.ime}}</td>
+        <td>{{req.prezime}}</td>
+        <td>{{req.mail}}</td>
+        <td>{{req.username}}</td>
+
+        <td>
+            <div class="container">
+                <div class="row text-center">
+                  <div class="col-4">
+                      <button (click)="prihvati(req)"  class="btn btn-success">Odobri</button>
+                  </div>
+                  <div class="col-4">
+                      <button (click)="odbij(req)"  class="btn btn-danger">Odbij</button>
+                  </div>
+                  <div class="col-4">
+                      <button (click)="detaljno(req)" class="btn btn-info">Detaljno</button>
+                  </div>
+                </div>
+              </div>
+            </td>
+        
+
+      </tr>
+     
+    </tbody>
+  </table>
+		</div>
+		<div class="tab-pane fade" id="sit-amet" role="tabpanel">
+		<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+			</div>
+	</div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="content_box">
+        <br>
+        <!--ovde stavimo neki div gde se prikaze sve detaljno o korisniku :D-->
+     
+          <div class="center_bar ">
+                  <div class="tab-content ">
+              <div class="tab-pane fade show active" id="lorem" role="tabpanel">
+                <div *ngIf ="prazno == true">
+                Trentno ne postoje pojmovi za odobravanje.
+                </div>
+     <div>      
+       <hr>
+       &nbsp; <h4> Rang lista za datum : {{datum}}</h4>
+      <table class="table table-bordered">
+          <thead>
+             
+            <tr>
+                <th>br</th>
+              <th>Korisnicko ime</th>
+              <th>Igra</th>
+              <th>Poeni</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rang of rangs; let i = index">
+                <td>{{i+1}}.</td>
+              <td>{{rang.username}}</td>
+              <td *ngIf = "rang.igra == 2">Zanimljive geografije</td>
+              <td *ngIf = "rang.igra == 3">Anagram</td>
+              <td *ngIf = "rang.igra == 1">Moj broj</td>
+              <td> {{rang.poeni}}</td>
+           
+            </tr>
+         
+          </tbody>
+          </table>
+        </div>
+                  </div>
+          </div>
+          </div>
+      </div>
+      
